@@ -64,7 +64,7 @@ public class FinalComplete1 {
         String finalScriptMarkTwain = appendARCap(appendAR, anArrayACap);
         
         //This saves the final altered string into a text file
-        saveDoc(finalScriptMarkTwain, "Hucklebery-boston-script.txt");
+        saveDoc(finalScriptMarkTwain, "Brody-Crib-Sheet.txt");
         }
     //this replaces lowercase very with wicked
     public static String replacevery(String s) {
