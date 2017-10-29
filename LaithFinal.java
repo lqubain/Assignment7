@@ -8,29 +8,36 @@ import java.net.*;
  * 10/27
  * Assignment 7
  * 1068
+ * 
+ *This program creates a string from a url that contains the book "The Adventures of Sherlock Holmes by Arthur Conan Doyle "and alters 
+ *the string to give it a Boston accent then saves the string to a text file. 
  */
 public class Asssignment7 {
     public static void main(String[] args) {
-        String script1= getWebContents("http://www.gutenberg.org/cache/epub/1661/pg1661.txt"); //This method imports the script from the URL to the the string.
-        String script = addSpace(script1); 
+        String script1= getWebContents("http://www.gutenberg.org/cache/epub/1661/pg1661.txt");
+        String script = addSpace(script1);
         script = replaceVeryLC(script);
         script = replaceVeryUC(script);
-        script = replaceVeryMC(script);
-        String finalScript = new String(replace(script));
-        saveDoc(finalScript, "brody-crib-sheet.txt");
+        script = replaceVeryMC(script);  
+        String finalScript = new String(replace(script)); 
+        saveDoc(finalScript, "brody-crib-sheet.txt"); 
     }
+    // replaceVeryLC method replaces every lower case 'very' to lower case 'wicked'
     public static String replaceVeryLC(String script) {
         String newScript = script.replace(" very", " wicked");
         return newScript;
     }
+    // replaceVeryLC method replaces every upper case 'very' to upper case 'wicked'    
     public static String replaceVeryUC (String script) {
         String newScript = script.replace(" VERY", " WICKED");
         return newScript;
     }
+    // replaceVeryLC method replaces every 'Very' at the beginning of a sentence to 'Wicked'
     public static String replaceVeryMC (String script) {
         String newScript = script.replace("Very", "Wicked");
         return newScript;
     }
+    // replace method sets the string equal to an arraylist of chars and goes through the if conditions for every char to create the boston accent for the required words
     public static char[] replace (String script){
         ArrayList<Character> scriptARR = new ArrayList<Character>();
         
@@ -110,7 +117,6 @@ public class Asssignment7 {
         
         return finalARR; 
     }
-    
     public static Boolean isSymbol(char s) {
         String symbols = "'!?.,;:)(";
         if (symbols.contains("" + s)) {
@@ -118,7 +124,6 @@ public class Asssignment7 {
         }
         return false;
     }
-    
     public static Boolean isVowel(char s) {
         String vowels = "aeiouAEIOU";
         if (vowels.contains("" + s)) {
@@ -126,7 +131,6 @@ public class Asssignment7 {
         }
         return false;
     }
-    
     public static Boolean isLetter(char s) {
         String letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         if (letters.contains("" + s)) {
@@ -179,7 +183,8 @@ public class Asssignment7 {
             }
         }
     }
-    public static String addSpace (String script1){
+    //The addspace method was necessary because without the extra spaces at the end of the string the replace method would not go through the entire string. 
+    public static String addSpace (String script1){ 
         String script = script1 + "\t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t "+
         "\t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t "+
         "\t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t "+
