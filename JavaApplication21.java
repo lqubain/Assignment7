@@ -6,11 +6,13 @@ public class JavaApplication21 {
 
     public static void main(String[] args) {
         String s = "can I affect \"words car bar far\" well I was walking here \"when this cunt walked in\"";
-        int quoteCount = numOccurences(s, '\"');   
-        for (int i = 0; i< quoteCount; i++) {
-            int indexOfQuote = s.indexOf('\"', i);
-            int indexOfQuote2 = s.indexOf('\"', indexOfQuote + 1);
-            String subString = s.substring(indexOfQuote, indexOfQuote2 + 1);
+        int quoteCount = numOccurences(s, '\"');  
+        int[] anArray = indexArray(quoteCount, s, '\"');
+        System.out.println(java.util.Arrays.toString(anArray));
+        for (int i = 0; i< anArray.length; i++) {
+            //int indexOfQuote = s.indexOf('\"', i);
+            //int indexOfQuote2 = s.indexOf('\"', indexOfQuote + 1);
+            String subString = s.substring(anArray[i], anArray[i]+1);
             String changedSubString = bostonAccent(subString);
             System.out.println(changedSubString);
         }
@@ -38,6 +40,19 @@ public class JavaApplication21 {
         }
     return count;    
     }
+    public static int[] indexArray (int numA, String s, char c){
+        int [] anArray = new int[numA];
+        int count = 0; 
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == c) {
+                anArray[count]=i; 
+                count++;
+            }
+        }
+        return anArray; 
+    }        
 }
     
+
+
 
