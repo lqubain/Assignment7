@@ -1,20 +1,35 @@
 
+p
 package javaapplication21;
 
 
 public class JavaApplication21 {
 
     public static void main(String[] args) {
-        String s = "can I affect \"words car bar far\" well I was walking here \"when this cunt walked in\"";
+        String s = "can I affect \"words car bar far\" well I was walking here \"when this cunt walked in\"" +
+                    " well \"we're going to try again car bar far tar. \"";
         int quoteCount = numOccurences(s, '\"');  
         int[] anArray = indexArray(quoteCount, s, '\"');
         System.out.println(java.util.Arrays.toString(anArray));
-        for (int i = 0; i< anArray.length; i++) {
+        
+        /*for (int i = 0; i + 1< quoteCount + 1; i = i+2) {
             //int indexOfQuote = s.indexOf('\"', i);
             //int indexOfQuote2 = s.indexOf('\"', indexOfQuote + 1);
-            String subString = s.substring(anArray[i], anArray[i]+1);
+            String subString = s.substring(anArray[i]+1, anArray[i+1]);
+            //System.out.println(subString);
+            subString = subString + "      ";
+            String changedSubString = bostonAccent(subString);
+            System.out.println(changedSubString);*/
+            for (int i = 0; i + 1< quoteCount + 1; i = i+2) {
+            //int indexOfQuote = s.indexOf('\"', i);
+            //int indexOfQuote2 = s.indexOf('\"', indexOfQuote + 1);
+            String subString = s.substring(anArray[i] + 1, anArray[i+1]);
+            //System.out.println(subString);
+            subString = subString + "      ";
             String changedSubString = bostonAccent(subString);
             System.out.println(changedSubString);
+            String replaceString = s.replace(subString, changedSubString);
+            System.out.println(replaceString);
         }
     
     }
@@ -53,6 +68,4 @@ public class JavaApplication21 {
     }        
 }
     
-
-
 
